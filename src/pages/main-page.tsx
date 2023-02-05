@@ -6,6 +6,7 @@ const StyledDiv = styled.div((props) => ({
   borderRadius: "10px",
   width: "100px",
   color: props.theme.colors.secondary,
+  ":hover": { color: "red" },
 }));
 
 export const MainPage: FC = () => {
