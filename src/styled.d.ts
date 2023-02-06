@@ -1,4 +1,5 @@
 import "styled-components";
+import { StyledTypography } from "./ui/typography";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -15,6 +16,13 @@ declare module "styled-components" {
       textSecondary: string;
       textOverlay: string;
       danger: string;
+    };
+
+    typography: StyledTypography;
+
+    layout: {
+      defaultSpacing: 4;
+      borderRadius: "4px";
     };
   }
 }
