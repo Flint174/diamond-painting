@@ -1,9 +1,9 @@
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export interface StyledFont {
-  fontWeight: number;
-  fontSize: number;
-  lineHeight: number;
+  fontWeight: number | string;
+  fontSize: number | string;
+  lineHeight: number | string;
 }
 
 export interface StyledTypography {
@@ -21,26 +21,32 @@ interface TypographyColor {
   color?: string;
 }
 
+type TypographyMixin = TypographySize & TypographyColor;
+
+interface TextBlockProps extends TypographyMixin {
+  renderTag: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+}
+
 export const typography: StyledTypography = {
   huge: {
     fontWeight: 700,
-    fontSize: 36,
-    lineHeight: 44,
+    fontSize: "2.25rem",
+    lineHeight: "2.75rem",
   },
   large: {
-    fontSize: 700,
-    fontWeight: 24,
-    lineHeight: 29,
+    fontWeight: 700,
+    fontSize: "1.5rem",
+    lineHeight: "1,8125rem",
   },
   medium: {
-    fontSize: 700,
-    fontWeight: 20,
-    lineHeight: 24,
+    fontWeight: 700,
+    fontSize: "1.25rem",
+    lineHeight: "1.5rem",
   },
   default: {
-    fontSize: 400,
-    fontWeight: 16,
-    lineHeight: 19,
+    fontWeight: 400,
+    fontSize: "1rem",
+    lineHeight: "1,1875rem",
   },
 };
 
@@ -79,7 +85,7 @@ export const typographyColoMixin = css<TypographyColor>((props) => {
   };
 });
 
-export const typographyMixin = css<TypographySize & TypographyColor>`
+export const typographyMixin = css<TypographyMixin>`
   margin: 0;
   padding: 0;
   border: 0;
@@ -91,3 +97,39 @@ export const typographyMixin = css<TypographySize & TypographyColor>`
   ${typographyColoMixin};
   ${/* getBoxStyles */ ""};
 `;
+
+export const P = styled.p`
+  ${typographyMixin}
+`;
+
+export const Span = styled.span`
+  ${typographyMixin}
+`;
+
+export const H1 = styled.h1`
+  ${typographyMixin}
+`;
+
+export const H2 = styled.h2`
+  ${typographyMixin}
+`;
+
+export const H3 = styled.h3`
+  ${typographyMixin}
+`;
+
+export const H4 = styled.h4`
+  ${typographyMixin}
+`;
+
+export const H5 = styled.h5`
+  ${typographyMixin}
+`;
+
+export const H6 = styled.h6`
+  ${typographyMixin}
+`;
+
+// export const TextBlock = (<TextBlockProps>(props) => {
+
+// });
