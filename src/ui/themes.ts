@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 ${normalize}
 `;
 
-export const defaultTheme: DefaultTheme = {
+export const mainTheme: DefaultTheme = {
   colors: {
     background: "white",
     backgroundAlt: "grey",
@@ -18,7 +18,10 @@ export const defaultTheme: DefaultTheme = {
     textPrimary: "black",
     textSecondary: "grey",
   },
-  layout: { borderRadius: "0.25rem", defaultSpacing: "0.25rem" },
+  layout: {
+    borderRadius: "0.25rem",
+    defaultSpacing: "0.25rem",
+  },
   typography: {
     huge: {
       fontWeight: 700,

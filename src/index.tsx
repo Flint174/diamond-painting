@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./services";
 import { ThemeProvider } from "styled-components";
-import { defaultTheme } from "./ui/themes";
+import { mainTheme } from "./ui/themes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <ThemeProvider theme={defaultTheme}>
+        <ThemeProvider theme={mainTheme}>
           <App />
         </ThemeProvider>
       </Provider>

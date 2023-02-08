@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
+import { BoxProps, getBoxStyles } from "./box";
 
 export interface StyledFont {
   fontWeight: number | string;
@@ -24,7 +25,7 @@ interface TypographyColorProps {
 
 type TypographyMixin = TypographySizeProps & TypographyColorProps;
 
-interface TextBlockProps extends TypographyMixin {
+interface TextBlockProps extends TypographyMixin, BoxProps {
   renderTag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   children?: ReactNode;
 }
@@ -74,7 +75,7 @@ export const typographyMixin = css<TypographyMixin>`
   word-break: break-word;
   ${typographySizeMixins};
   ${typographyColoMixin};
-  ${/* getBoxStyles */ ""};
+  ${getBoxStyles};
 `;
 
 export const P = styled.p`
@@ -114,53 +115,54 @@ export const TextBlock: FC<TextBlockProps> = ({
   color = "primary",
   size = "default",
   children,
+  ...props
 }) => {
   switch (renderTag) {
     case "h1":
       return (
-        <H1 color={color} size={size}>
+        <H1 {...props} color={color} size={size}>
           {children}
         </H1>
       );
     case "h2":
       return (
-        <H2 color={color} size={size}>
+        <H2 {...props} color={color} size={size}>
           {children}
         </H2>
       );
     case "h3":
       return (
-        <H3 color={color} size={size}>
+        <H3 {...props} color={color} size={size}>
           {children}
         </H3>
       );
     case "h4":
       return (
-        <H4 color={color} size={size}>
+        <H4 {...props} color={color} size={size}>
           {children}
         </H4>
       );
     case "h5":
       return (
-        <H5 color={color} size={size}>
+        <H5 {...props} color={color} size={size}>
           {children}
         </H5>
       );
     case "h6":
       return (
-        <H6 color={color} size={size}>
+        <H6 {...props} color={color} size={size}>
           {children}
         </H6>
       );
     case "p":
       return (
-        <P color={color} size={size}>
+        <P {...props} color={color} size={size}>
           {children}
         </P>
       );
     case "span":
       return (
-        <Span color={color} size={size}>
+        <Span {...props} color={color} size={size}>
           {children}
         </Span>
       );
