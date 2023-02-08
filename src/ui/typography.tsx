@@ -1,3 +1,4 @@
+import { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 export interface StyledFont {
@@ -6,51 +7,29 @@ export interface StyledFont {
   lineHeight: number | string;
 }
 
-export interface StyledTypography {
+export interface TypographySize {
   huge: StyledFont;
   large: StyledFont;
   medium: StyledFont;
   default: StyledFont;
 }
 
-interface TypographySize {
-  size?: keyof StyledTypography;
+interface TypographySizeProps {
+  size?: keyof TypographySize;
 }
 
-interface TypographyColor {
+interface TypographyColorProps {
   color?: string;
 }
 
-type TypographyMixin = TypographySize & TypographyColor;
+type TypographyMixin = TypographySizeProps & TypographyColorProps;
 
 interface TextBlockProps extends TypographyMixin {
-  renderTag: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  renderTag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  children?: ReactNode;
 }
 
-export const typography: StyledTypography = {
-  huge: {
-    fontWeight: 700,
-    fontSize: "2.25rem",
-    lineHeight: "2.75rem",
-  },
-  large: {
-    fontWeight: 700,
-    fontSize: "1.5rem",
-    lineHeight: "1,8125rem",
-  },
-  medium: {
-    fontWeight: 700,
-    fontSize: "1.25rem",
-    lineHeight: "1.5rem",
-  },
-  default: {
-    fontWeight: 400,
-    fontSize: "1rem",
-    lineHeight: "1,1875rem",
-  },
-};
-
-export const typographySizeMixins = css<TypographySize>((props) => {
+export const typographySizeMixins = css<TypographySizeProps>((props) => {
   const { size } = props;
   const selectedSize = props.theme.typography[size ?? "default"];
   return {
@@ -60,7 +39,7 @@ export const typographySizeMixins = css<TypographySize>((props) => {
   };
 });
 
-export const typographyColoMixin = css<TypographyColor>((props) => {
+export const typographyColoMixin = css<TypographyColorProps>((props) => {
   const selectedColor = () => {
     const { colors } = props.theme;
     switch (props.color) {
@@ -130,6 +109,60 @@ export const H6 = styled.h6`
   ${typographyMixin}
 `;
 
-// export const TextBlock = (<TextBlockProps>(props) => {
-
-// });
+export const TextBlock: FC<TextBlockProps> = ({
+  renderTag = "span",
+  color = "primary",
+  size = "default",
+  children,
+}) => {
+  switch (renderTag) {
+    case "h1":
+      return (
+        <H1 color={color} size={size}>
+          {children}
+        </H1>
+      );
+    case "h2":
+      return (
+        <H2 color={color} size={size}>
+          {children}
+        </H2>
+      );
+    case "h3":
+      return (
+        <H3 color={color} size={size}>
+          {children}
+        </H3>
+      );
+    case "h4":
+      return (
+        <H4 color={color} size={size}>
+          {children}
+        </H4>
+      );
+    case "h5":
+      return (
+        <H5 color={color} size={size}>
+          {children}
+        </H5>
+      );
+    case "h6":
+      return (
+        <H6 color={color} size={size}>
+          {children}
+        </H6>
+      );
+    case "p":
+      return (
+        <P color={color} size={size}>
+          {children}
+        </P>
+      );
+    case "span":
+      return (
+        <Span color={color} size={size}>
+          {children}
+        </Span>
+      );
+  }
+};

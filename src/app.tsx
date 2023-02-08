@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { MainPage } from "../../pages/main-page";
+import { MainPage } from "./pages/main-page";
 
 export const App: FC = () => {
   return (

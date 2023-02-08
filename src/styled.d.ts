@@ -1,5 +1,5 @@
 import "styled-components";
-import { StyledTypography } from "./ui/typography";
+import { TypographySize } from "./ui/typography";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -18,11 +18,11 @@ declare module "styled-components" {
       danger: string;
     };
 
-    typography: StyledTypography;
+    typography: TypographySize;
 
     layout: {
-      defaultSpacing: 4;
-      borderRadius: "4px";
+      defaultSpacing: number | string;
+      borderRadius: number | string;
     };
   }
 }
