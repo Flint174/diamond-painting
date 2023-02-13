@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { BoxProps, calcSpacing, getBoxStyles } from "./box";
+import { BoxProps, getBoxStyles } from "./box";
+import { calcSpacing } from "./utils/spacing";
 
 const primaryStyles = css((props) => {
   const { colors } = props.theme;
@@ -59,15 +60,13 @@ const secondaryStyles = css((props) => {
   };
 });
 
-interface ButtonProps extends BoxProps {
-  //   type?: "primary" | "secondary";
+interface ButtonProps {
   primary?: boolean;
   secondary?: boolean;
   fullwidth?: boolean;
 }
 
 const buttonMixin = css<ButtonProps>((props) =>
-  //   props.type === "primary" ? primaryStyles : secondaryStyles
   props.primary ? primaryStyles : secondaryStyles
 );
 
@@ -77,7 +76,7 @@ export const Button = styled.button.attrs((props) => ({
   pl: 4,
   pr: 4,
   ...props,
-}))<ButtonProps>`
+}))<ButtonProps & BoxProps>`
   border: none;
   cursor: pointer;
   font-weight: 500;
