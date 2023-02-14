@@ -3,7 +3,7 @@ import { BoxProps, getBoxStyles } from "./box";
 import { calcSpacing } from "./utils/spacing";
 
 export interface FlexBoxProps {
-  direction?: "row" | "column" | "row-reverse" | "column-reverse";
+  flex?: "row" | "column" | "row-reverse" | "column-reverse";
   wrap?: "nowrap" | "wrap" | "wrap-reverse";
   justify?:
     | "flex-start"
@@ -30,7 +30,7 @@ export interface FlexBoxProps {
 
 export const getFlexStyles = css<FlexBoxProps>(
   ({
-    direction,
+    flex: direction,
     wrap,
     justify,
     items,
