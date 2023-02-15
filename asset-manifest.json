@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/static/js/main.d4b4a88c.js",
+    "static/js/787.d852d926.chunk.js": "/static/js/787.d852d926.chunk.js",
+    "static/media/en-gb-flag.svg": "/static/media/en-gb-flag.48037bf6a43005503ec9b9b1ca5eab32.svg",
+    "index.html": "/index.html",
+    "static/media/burger_button_menu_icon.svg": "/static/media/burger_button_menu_icon.671941870cd8714bec2e69c78e34a0a2.svg",
+    "main.d4b4a88c.js.map": "/static/js/main.d4b4a88c.js.map",
+    "787.d852d926.chunk.js.map": "/static/js/787.d852d926.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d4b4a88c.js"
+  ]
+}
