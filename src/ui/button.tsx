@@ -1,82 +1,109 @@
+import { FC } from "react";
 import styled, { css } from "styled-components";
 import { BoxProps, getBoxStyles } from "./box";
+import { Icon } from "./icon";
+import { TextBlock, TypographySizeProps } from "./typography";
 import { calcSpacing } from "./utils/spacing";
-
-const primaryStyles = css((props) => {
-  const { colors } = props.theme;
-  return {
-    backgroundColor: colors.primary,
-    color: colors.primaryContent,
-    ":hover": {
-      backgroundColor: colors.primary,
-      color: colors.primaryContent,
-      WebkitTapHighlightColor: "transparent",
-      outline: "none",
-      msTouchAction: "manipulation",
-      touchAction: "manipulation",
-    },
-    ":active": {
-      backgroundColor: colors.primary,
-      color: colors.primaryContent,
-      WebkitTapHighlightColor: "transparent",
-      outline: "none",
-      msTouchAction: "manipulation",
-      touchAction: "manipulation",
-    },
-    ":disabled": {
-      backgroundColor: colors.primary,
-      color: colors.primaryContent,
-      cursor: "not-allowed",
-    },
-  };
-});
-
-const secondaryStyles = css((props) => {
-  const { colors } = props.theme;
-  return {
-    backgroundColor: colors.secondary,
-    color: colors.secondaryContent,
-    ":hover": {
-      backgroundColor: colors.secondary,
-      color: colors.secondaryContent,
-      WebkitTapHighlightColor: "transparent",
-      outline: "none",
-      msTouchAction: "manipulation",
-      touchAction: "manipulation",
-    },
-    ":active": {
-      backgroundColor: colors.secondary,
-      color: colors.secondaryContent,
-      WebkitTapHighlightColor: "transparent",
-      outline: "none",
-      msTouchAction: "manipulation",
-      touchAction: "manipulation",
-    },
-    ":disabled": {
-      backgroundColor: colors.secondary,
-      color: colors.secondaryContent,
-      cursor: "not-allowed",
-    },
-  };
-});
 
 interface ButtonProps {
   primary?: boolean;
   secondary?: boolean;
+  flat?: boolean;
   fullwidth?: boolean;
+  color?: string;
+  bgColor?: string;
+  label?: string;
+  icon?: string;
+  iconSize?: string;
+  dense?: boolean;
+  onClick?: () => void;
 }
 
-const buttonMixin = css<ButtonProps>((props) =>
-  props.primary ? primaryStyles : secondaryStyles
+const primaryStyles = css<ButtonProps>(
+  ({ color, bgColor, theme: { colors } }) => {
+    const backgroundColor = bgColor || colors.primary;
+    const contentColor = color || colors.primaryContent;
+    return {
+      backgroundColor,
+      color: contentColor,
+      ":hover": {
+        backgroundColor,
+        color: contentColor,
+        WebkitTapHighlightColor: "transparent",
+        outline: "none",
+        msTouchAction: "manipulation",
+        touchAction: "manipulation",
+      },
+      ":active": {
+        backgroundColor,
+        color: contentColor,
+        WebkitTapHighlightColor: "transparent",
+        outline: "none",
+        msTouchAction: "manipulation",
+        touchAction: "manipulation",
+      },
+      ":disabled": {
+        backgroundColor,
+        color: contentColor,
+        cursor: "not-allowed",
+      },
+    };
+  }
 );
 
-export const Button = styled.button.attrs((props) => ({
-  pt: 2,
-  pb: 2,
-  pl: 4,
-  pr: 4,
-  ...props,
-}))<ButtonProps & BoxProps>`
+const secondaryStyles = css<ButtonProps>(
+  ({ color, bgColor, theme: { colors } }) => {
+    const backgroundColor = bgColor || colors.secondary;
+    const contentColor = color || colors.secondaryContent;
+    return {
+      backgroundColor,
+      color: contentColor,
+      ":hover": {
+        backgroundColor,
+        color: contentColor,
+        WebkitTapHighlightColor: "transparent",
+        outline: "none",
+        msTouchAction: "manipulation",
+        touchAction: "manipulation",
+      },
+      ":active": {
+        backgroundColor,
+        color: contentColor,
+        WebkitTapHighlightColor: "transparent",
+        outline: "none",
+        msTouchAction: "manipulation",
+        touchAction: "manipulation",
+      },
+      ":disabled": {
+        backgroundColor,
+        color: contentColor,
+        cursor: "not-allowed",
+      },
+    };
+  }
+);
+
+const buttonMixin = css<ButtonProps>(({ primary }) =>
+  primary ? primaryStyles : secondaryStyles
+);
+
+export const StyledButton = styled.button.attrs<
+  ButtonProps & BoxProps,
+  ButtonProps & BoxProps
+>((props) => {
+  console.log(props);
+  return props.dense
+    ? { p: 0, m: 0, ...props }
+    : //   props
+      //   { p: props.p ?? 0, m: props.m ?? 0, ...props }
+      {
+        pt: 2,
+        pb: 2,
+        pl: 4,
+        pr: 4,
+        ...props,
+      };
+})<ButtonProps & BoxProps>`
   border: none;
   cursor: pointer;
   font-weight: 500;
@@ -85,6 +112,8 @@ export const Button = styled.button.attrs((props) => ({
   font-size: 1rem;
   line-height: 1.625rem;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   min-height: 2.625rem;
   align-items: center;
   justify-content: center;
@@ -94,3 +123,32 @@ export const Button = styled.button.attrs((props) => ({
   ${getBoxStyles};
   ${buttonMixin};
 `;
+
+export const Button: FC<ButtonProps & TypographySizeProps> = ({
+  icon,
+  label,
+  size,
+  color,
+  flat,
+  bgColor,
+  iconSize,
+  ...props
+}) => {
+  const isFlat = (value: string | undefined) => (flat ? "inherit" : value);
+  console.log("size", iconSize);
+  return (
+    <StyledButton
+      {...props}
+      color={isFlat(color)}
+      bgColor={isFlat(bgColor)}
+      flat={flat}
+    >
+      {icon && <Icon src={icon} size={iconSize || "1rem"} />}
+      {label && (
+        <TextBlock renderTag="p" size={size} color={isFlat(color)}>
+          {label}
+        </TextBlock>
+      )}
+    </StyledButton>
+  );
+};
