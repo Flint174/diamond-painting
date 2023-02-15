@@ -15,17 +15,17 @@ export interface TypographySize {
   default: StyledFont;
 }
 
-interface TypographySizeProps {
+export interface TypographySizeProps {
   size?: keyof TypographySize;
 }
 
-interface TypographyColorProps {
+export interface TypographyColorProps {
   color?: string;
 }
 
 type TypographyMixin = TypographySizeProps & TypographyColorProps;
 
-interface TextBlockProps extends TypographyMixin, BoxProps {
+export interface TextBlockProps extends TypographyMixin, BoxProps {
   renderTag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   children?: ReactNode;
 }

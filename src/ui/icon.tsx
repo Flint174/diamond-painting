@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { TypographySize, TypographySizeProps } from "./typography";
 
 interface IconProps {
   size: string;
