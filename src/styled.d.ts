@@ -18,7 +18,10 @@ declare module "styled-components" {
       danger: string;
     };
 
-    typography: TypographySize;
+    typography: {
+      size: TypographySize;
+      font: string[];
+    };
 
     layout: {
       defaultSpacing: number | string;

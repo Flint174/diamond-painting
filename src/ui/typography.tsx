@@ -32,7 +32,7 @@ export interface TextBlockProps extends TypographyMixin, BoxProps {
 
 export const typographySizeMixins = css<TypographySizeProps>((props) => {
   const { size } = props;
-  const selectedSize = props.theme.typography[size ?? "default"];
+  const selectedSize = props.theme.typography.size[size ?? "default"];
   return {
     fontWeight: selectedSize.fontWeight,
     fontSize: selectedSize.fontSize,
@@ -70,8 +70,9 @@ export const typographyMixin = css<TypographyMixin>`
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: ${(p) => p.theme.typography.font.join(",")};
+  /* font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
   word-break: break-word;
   ${typographySizeMixins};
   ${typographyColoMixin};
