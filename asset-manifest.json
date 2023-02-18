@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.js": "/diamond-painting/static/js/main.1c95e060.js",
+    "main.js": "/diamond-painting/static/js/main.f9ddcaf3.js",
     "static/js/787.d852d926.chunk.js": "/diamond-painting/static/js/787.d852d926.chunk.js",
-    "static/media/login.svg": "/diamond-painting/static/media/login.b280759a228e55a5895dc4585a00548c.svg",
+    "static/media/login-icon.svg": "/diamond-painting/static/media/login-icon.1ebee70580da2aa144f1cf5390974594.svg",
     "static/media/en-gb-flag.svg": "/diamond-painting/static/media/en-gb-flag.48037bf6a43005503ec9b9b1ca5eab32.svg",
+    "static/media/en-gb-flag-noshadow.svg": "/diamond-painting/static/media/en-gb-flag-noshadow.53f4ce34a3aa0b9544221dfc970126d1.svg",
     "index.html": "/diamond-painting/index.html",
-    "static/media/burger_button_menu_icon.svg": "/diamond-painting/static/media/burger_button_menu_icon.671941870cd8714bec2e69c78e34a0a2.svg",
-    "main.1c95e060.js.map": "/diamond-painting/static/js/main.1c95e060.js.map",
+    "static/media/burger-icon.svg": "/diamond-painting/static/media/burger-icon.671941870cd8714bec2e69c78e34a0a2.svg",
+    "main.f9ddcaf3.js.map": "/diamond-painting/static/js/main.f9ddcaf3.js.map",
     "787.d852d926.chunk.js.map": "/diamond-painting/static/js/787.d852d926.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.1c95e060.js"
+    "static/js/main.f9ddcaf3.js"
   ]
 }
