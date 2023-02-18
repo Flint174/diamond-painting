@@ -59,6 +59,8 @@ export const getFlexStyles = css<FlexBoxProps>(
 );
 
 export const FlexBox = styled.div<FlexBoxProps & BoxProps>`
+  margin: 0;
+  padding: 0;
   display: block;
   box-sizing: border-box;
   ${getBoxStyles};

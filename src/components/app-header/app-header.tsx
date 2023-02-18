@@ -1,47 +1,39 @@
 import styled from "styled-components";
 import {
   Box,
+  BurgerIcon,
+  EnGbFlag,
+  EnGbFlagNoshadow,
+  TextBlock,
   // BoxProps,
   // getBoxStyles
-} from "../../ui/box";
-import {
-  FlexBox,
-  //  FlexBoxProps,
-  //  getFlexStyles,
-} from "../../ui/flex-box";
+} from "../../ui";
+import { FlexBox, FlexBoxProps, getFlexStyles } from "../../ui/flex-box";
 import { Button } from "../../ui";
 import { FC } from "react";
-// import Logo from "../../../public/logo192.png";
+import { LoginIcon } from "../../ui/icons";
 
-// import FlagIcon from "../../images/en-gb-flag.svg";
-import BurgerIcon from "../../images/burger_button_menu_icon.svg";
-// import LoginIcon from "../../images/login.svg";
-
-const Header = styled.header`
+const Header = styled.header<FlexBoxProps>`
   background: ${(p) => p.theme.colors.primary};
   color: ${(p) => p.theme.colors.primaryContent};
+  width: 100%;
+  ${getFlexStyles}
 `;
 
 const Title = styled(FlexBox)``;
-
-const MenuButton = styled(Button)`
-  position: absolute;
-`;
 
 export const AppHeader: FC = (props) => {
   const onClick = () => {
     console.log("click!");
   };
   return (
-    <Header color="primary">
-      <MenuButton flat icon={BurgerIcon} onClick={onClick} />
-      <Title flex="column" items="center" justify="center" p={3}>
-        <Box>Diaomdsiac</Box>
+    <Header color="primary" flex="row" items="center">
+      <Title flex="row" items="center" justify="flex-start" grow={1} p={3}>
+        <TextBlock size="medium">Diaomdsiac</TextBlock>
       </Title>
-      {/* <FlexBox flex="row" wrap="nowrap" gap={5}>
-        <Button flat icon={FlagIcon} iconSize="2rem" dense />
-        <Button flat icon={LoginIcon} iconSize="2rem" dense />
-      </FlexBox> */}
+      <Button flat dense icon={EnGbFlag} iconSize="3rem" onClick={onClick} />
+      <Button flat dense icon={LoginIcon} iconSize="3rem" onClick={onClick} />
+      <Button flat icon={BurgerIcon} iconSize="1.5rem" onClick={onClick} />
     </Header>
   );
 };

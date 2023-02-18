@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { AppHeader } from "../components/app-header";
+import { Box } from "../ui";
 
 export const MainPage: FC = () => {
   return (
     <>
       {/* header */}
-      <AppHeader />
+      {/* <AppHeader /> */}
       {/* canvas */}
+      <Box>Canvas</Box>
       {/* tools-manager */}
     </>
   );

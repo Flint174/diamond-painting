@@ -13,6 +13,5 @@ const StyledIcon = styled.img<IconProps>`
 `;
 
 export const Icon: FC<IconProps> = ({ src, alt, size }) => {
-  console.log("icon size", size);
   return <StyledIcon srcSet={src} alt={alt} src={src} size={size} />;
 };

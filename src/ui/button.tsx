@@ -91,7 +91,6 @@ export const StyledButton = styled.button.attrs<
   ButtonProps & BoxProps,
   ButtonProps & BoxProps
 >((props) => {
-  console.log(props);
   return props.dense
     ? { p: 0, m: 0, ...props }
     : //   props
