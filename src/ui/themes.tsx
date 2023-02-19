@@ -1,8 +1,13 @@
 import { createGlobalStyle, DefaultTheme } from "styled-components";
 import { normalize } from "styled-normalize";
+import VarelaRound from "../fonts/varela-rounds/VarelaRound-Regular.ttf";
 
 export const GlobalStyle = createGlobalStyle`
-${normalize}
+    ${normalize}
+    @font-face {
+        font-family: "Varela Round";
+        src: local("Varela Round"), url(${VarelaRound}) format('truetype');
+    }
 `;
 
 export const mainTheme: DefaultTheme = {
@@ -10,14 +15,11 @@ export const mainTheme: DefaultTheme = {
     background: "white",
     backgroundAlt: "grey",
     danger: "red",
-    // primary: "blue",
-    // primary: "#BDE0FE",
     primary: "#A2D2FF",
     primaryContent: "#0C0A3E",
     secondary: "green",
     secondaryContent: "black",
     textOverlay: "grey",
-    // textPrimary: "black",
     textPrimary: "#0C0A3E",
     textSecondary: "grey",
   },

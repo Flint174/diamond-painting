@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import {
-  Box,
   BurgerIcon,
   EnGbFlag,
-  EnGbFlagNoshadow,
   TextBlock,
   // BoxProps,
   // getBoxStyles
@@ -29,7 +27,9 @@ export const AppHeader: FC = (props) => {
   return (
     <Header color="primary" flex="row" items="center">
       <Title flex="row" items="center" justify="flex-start" grow={1} p={3}>
-        <TextBlock size="medium">Diaomdsiac</TextBlock>
+        <TextBlock size="medium" color="inherit">
+          Diamodsiac
+        </TextBlock>
       </Title>
       <Button flat dense icon={EnGbFlag} iconSize="3rem" onClick={onClick} />
       <Button flat dense icon={LoginIcon} iconSize="3rem" onClick={onClick} />
