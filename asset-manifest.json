@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/diamond-painting/static/js/main.282330fe.js",
+    "main.js": "/diamond-painting/static/js/main.eb03fcc8.js",
     "static/js/787.d852d926.chunk.js": "/diamond-painting/static/js/787.d852d926.chunk.js",
     "static/media/VarelaRound-Regular.ttf": "/diamond-painting/static/media/VarelaRound-Regular.e67ccd4a92677fdf8719.ttf",
     "static/media/login-icon.svg": "/diamond-painting/static/media/login-icon.1ebee70580da2aa144f1cf5390974594.svg",
@@ -10,10 +10,10 @@
     "static/media/burger-icon.svg": "/diamond-painting/static/media/burger-icon.671941870cd8714bec2e69c78e34a0a2.svg",
     "static/media/arrow-left.svg": "/diamond-painting/static/media/arrow-left.136dc90035ded96fe2e6442347709074.svg",
     "static/media/arrow-right.svg": "/diamond-painting/static/media/arrow-right.beabacd5e10dee9afc88b811b6720c98.svg",
-    "main.282330fe.js.map": "/diamond-painting/static/js/main.282330fe.js.map",
+    "main.eb03fcc8.js.map": "/diamond-painting/static/js/main.eb03fcc8.js.map",
     "787.d852d926.chunk.js.map": "/diamond-painting/static/js/787.d852d926.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.282330fe.js"
+    "static/js/main.eb03fcc8.js"
   ]
 }
