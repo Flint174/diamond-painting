@@ -134,7 +134,6 @@ export const Button: FC<ButtonProps & TypographySizeProps> = ({
   ...props
 }) => {
   const isFlat = (value: string | undefined) => (flat ? "inherit" : value);
-  console.log("size", iconSize);
   return (
     <StyledButton
       {...props}

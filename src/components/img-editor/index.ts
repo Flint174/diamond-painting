@@ -1,1 +1,1 @@
-export { ImgEditor } from "./img-editor";
+export { ImageEditor } from "./image-editor";

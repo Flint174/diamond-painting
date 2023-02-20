@@ -26,7 +26,7 @@ export interface TypographyColorProps {
 type TypographyMixin = TypographySizeProps & TypographyColorProps;
 
 export interface TextBlockProps extends TypographyMixin, BoxProps {
-  renderTag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  renderTag?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label";
   children?: ReactNode;
 }
 
@@ -111,6 +111,10 @@ export const H6 = styled.h6`
   ${typographyMixin}
 `;
 
+export const Label = styled.label`
+  ${typographyMixin}
+`;
+
 export const TextBlock: FC<TextBlockProps> = ({
   renderTag = "span",
   color = "primary",
@@ -166,6 +170,12 @@ export const TextBlock: FC<TextBlockProps> = ({
         <Span {...props} color={color} size={size}>
           {children}
         </Span>
+      );
+    case "label":
+      return (
+        <Label {...props} color={color} size={size}>
+          {children}
+        </Label>
       );
   }
 };

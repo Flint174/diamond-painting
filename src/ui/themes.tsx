@@ -8,11 +8,15 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Varela Round";
         src: local("Varela Round"), url(${VarelaRound}) format('truetype');
     }
+
+    body {
+        background-color: ${(p) => p.theme.colors.background};
+    }
 `;
 
 export const mainTheme: DefaultTheme = {
   colors: {
-    background: "white",
+    background: "#FFC8DD",
     backgroundAlt: "grey",
     danger: "red",
     primary: "#A2D2FF",

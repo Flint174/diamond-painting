@@ -1,10 +1,10 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { ControlPanel } from "../components/control-panel";
-import { ImgEditor } from "../components/img-editor";
+import { ImageEditor } from "../components/img-editor";
 import { Box } from "../ui";
 
-const Main = styled.main`
+const Main = styled(Box)`
   margin: 0;
   padding: 0;
   width: 100%;
@@ -17,7 +17,7 @@ const Main = styled.main`
     "control-panel";
 `;
 
-const ImgEditorContainer = styled(ImgEditor)`
+const ImgEditorContainer = styled(ImageEditor)`
   grid-area: img-editor;
 `;
 

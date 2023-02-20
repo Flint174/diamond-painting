@@ -2,8 +2,10 @@ import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { AppHeader } from "./components/app-header";
+import { ImportImagePage } from "./pages/import-image-page";
 import { MainPage } from "./pages/main-page";
 import { Box } from "./ui";
+import { EDIT_IMAGE_ROUTE } from "./utils/constants/routes";
 
 enum GridAreas {
   SIDEBAR = "sidebar",
@@ -36,7 +38,8 @@ export const App: FC = () => {
       <Header />
       <Main>
         <Routes>
-          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/" element={<ImportImagePage />}></Route>
+          <Route path={EDIT_IMAGE_ROUTE} element={<MainPage />}></Route>
         </Routes>
       </Main>
     </GridLayout>

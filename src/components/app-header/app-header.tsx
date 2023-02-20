@@ -28,7 +28,7 @@ export const AppHeader: FC = (props) => {
     <Header color="primary" flex="row" items="center">
       <Title flex="row" items="center" justify="flex-start" grow={1} p={3}>
         <TextBlock size="medium" color="inherit">
-          Diamodsiac
+          Diamodsaic
         </TextBlock>
       </Title>
       <Button flat dense icon={EnGbFlag} iconSize="3rem" onClick={onClick} />
